@@ -10,6 +10,4 @@ describe ('Books store swagger', () => {
       expect(res.status).toEqual(201)
     })
 
-
-
 })
