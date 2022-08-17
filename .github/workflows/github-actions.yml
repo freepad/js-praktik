@@ -4,8 +4,8 @@ on: [push]
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+#  pages: write
+#  id-token: write
 
 jobs:
   test:
@@ -22,8 +22,8 @@ jobs:
       node-version: 16
       cache: npm
 
-   - name: Setup Pages
-     uses: actions/configure-pages@v1
+  # - name: Setup Pages
+  #   uses: actions/configure-pages@v1
 
    - name: Install modules
      run: npm ci
@@ -46,5 +46,5 @@ jobs:
       clear: true
       token: ${{secrets.TOKEN}}
 
-   - name: Send report via telegram bot
-   - run: "curl -X"
+  # - name: Send report via telegram bot
+  # - run: "curl -X"
