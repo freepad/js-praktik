@@ -37,3 +37,10 @@ jobs:
          if-no-files-found: error
          path: coverage
 
+     - name: Deploy
+       uses: JamesIves/github-pages-deploy-action@v4
+       with:
+         folder: test-report
+         clean: true
+         token: ${{ secrets.TOKEN }}
+
