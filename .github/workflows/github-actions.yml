@@ -19,6 +19,9 @@ jobs:
      - name: Add ci
        run: npm ci
 
+     - name: Setup Pages
+       uses: actions/configure-page@v1
+
      - name: Get coverage
        continue-on-error: true
        run: npm run coverage
@@ -36,6 +39,10 @@ jobs:
          name: coverage
          if-no-files-found: error
          path: coverage
+
+     - name: Deploy to GitHub Pages
+       id: deployment
+       uses: actions/deploy-pages@v1
 
      - name: Send report to telegram
        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \'Content-Type: application/json\' -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\": \"Hello\"}'"
