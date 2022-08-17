@@ -4,46 +4,41 @@ on: [push]
 
 permissions:
   contents: read
-#  pages: write
-#  id-token: write
+  pages: write
+  id-token: write
 
 jobs:
   test:
    runs-on: ubuntu-latest
-   environment:
-    name: github-pages
-    url: ${{ steps.deployments.outputs.page_url}}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-  steps:
-   - uses: actions/checkout@v2
-   - uses: actions/setup-node@v2
-     with:
-      node-version: 16
-      cache: npm
+    runs-on: ubuntu-latest
 
-  # - name: Setup Pages
-  #   uses: actions/configure-pages@v1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
 
-   - name: Install modules
-     run: npm ci
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
 
-   - name: Run tests
-     continue-on-error: true
-     run: npm test
+      - name: Install modules
+        run: npm ci
 
-   - name: Use the Upload Artifacts GitHub Action
-     uses: actions/upload-artifact@v3
-     with:
-      name: report
-      if-no-files-found: error
-      path: ./coverage
+      - name: Run tests
+        continue-on-error: true
+        run: npm test
 
-   - name: Deploy
-     uses: JamesIves/github-pages-deploy-action@v4
-     with:
-      folder: test-report
-      clear: true
-      token: ${{secrets.TOKEN}}
+   #   - name: Deploy
+   #     uses: JamesIves/github-pages-deploy-action@v4
+   #     with:
+   #       folder: html-report
+   #       clean: true
+   #       token: ${{ secrets.TOKEN }}
 
-  # - name: Send report via telegram bot
-  # - run: "curl -X"
+    #  - name: Send report via telegram bot
+    #    run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\": \"Report link is: ${{env.GITHUB_ACTION_PATH}}/${{env.GITHUB_ACTION}}\"}'"
