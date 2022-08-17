@@ -4,10 +4,6 @@ on: [push]
 
 jobs:
   test:
-   environment:
-     name: github-pages
-     url: ${{ steps.deployment.outputs.page_url }}
-
    runs-on: ubuntu-latest
 
    steps:
@@ -40,11 +36,4 @@ jobs:
          name: coverage
          if-no-files-found: error
          path: coverage
-
-     - name: Deploy
-       uses: JamesIves/github-pages-deploy-action@v4
-       with:
-         folder: coverage/lcov-report
-         clean: true
-         token: ${{ secrets.TOKEN }}
 
