@@ -9,11 +9,10 @@ permissions:
 
 jobs:
   test:
+   runs-on: ubuntu-latest
    environment:
     name: github-pages
     url: ${{ steps.deployments.outputs.page_url}}
-
-  runs-on: ubuntu-latest
 
   steps:
    - uses: actions/checkout@v2
