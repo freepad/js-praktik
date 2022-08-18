@@ -52,7 +52,7 @@ jobs:
      - name: 
        uses: JamesIves/github-pages-deploy-action@v4
        with:
-         folder: test-report
+         folder: coverage
          clean: true
          token: ${{secrets.TOKEN}}
 
