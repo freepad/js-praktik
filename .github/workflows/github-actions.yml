@@ -40,7 +40,7 @@ jobs:
        with:
          name: report
          if-no-files-found: error
-         path: test-report/index.html
+         path: ./coverage
 
      - name: Publication coverage report
        uses: actions/upload-artifact@v3
@@ -52,7 +52,7 @@ jobs:
      - name: 
        uses: JamesIves/github-pages-deploy-action@v4
        with:
-         folder: test-report
+         folder: html-report
          clean: true
          token: ${{secrets.TOKEN}}
 
