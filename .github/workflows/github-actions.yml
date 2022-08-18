@@ -49,13 +49,10 @@ jobs:
          if-no-files-found: error
          path: coverage
 
-     - name: Checkout
-       uses: actions/checkout@v1
-
      - name: 
        uses: JamesIves/github-pages-deploy-action@v4
        with:
-         folder: test-report/index.html
+         folder: website/build
          clean: true
          token: ${{secrets.TOKEN}}
 
