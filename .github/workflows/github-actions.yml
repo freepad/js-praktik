@@ -52,7 +52,7 @@ jobs:
      - name: 
        uses: JamesIves/github-pages-deploy-action@v4
        with:
-         folder: coverage/Icov-report
+         folder: report
          clean: true
          token: ${{secrets.TOKEN}}
 
