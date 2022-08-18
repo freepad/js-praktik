@@ -54,7 +54,7 @@ jobs:
        with:
          folder: test-report
          clean: true
-         token: ${{ secters.TOKEN }}
+         token: ${{secrets.TOKEN}}
 
      - name: Send report to telegram
        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \'Content-Type: application/json\' -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\": \"Report link is: ${{env.GITHUB_ACTION_PATH}}/${{env.GITHUB_ACTION}}\"}'"
