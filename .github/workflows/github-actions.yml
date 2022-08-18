@@ -40,7 +40,7 @@ jobs:
        with:
          name: report
          if-no-files-found: error
-         path: ./coverage
+         path: test-report/index.html
 
      - name: Publication coverage report
        uses: actions/upload-artifact@v3

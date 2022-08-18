@@ -31,10 +31,10 @@
       [
         "./node_modules/jest-html-reporter",
         {
-          "publicPath": "./html-report",
+          "outputPath": "test-report/index.html",
           "pageTitle": "Report",
-          "filename": "index.html",
           "includeFailureMsg": true,
+          "filename": "index.html",
           "openReport": false
         }
       ]
