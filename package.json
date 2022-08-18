@@ -31,8 +31,8 @@
       [
         "./node_modules/jest-html-reporter",
         {
-          "pageTitle": "Report",
           "outputPath": "test-report/index.html",
+          "pageTitle": "Report",
           "filename": "index.html",
           "includeFailureMsg": true,
           "openReport": false
