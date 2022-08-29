@@ -31,8 +31,8 @@
       [
         "./node_modules/jest-html-reporter",
         {
-          "outputPath": "index.html",
-          "publicPath": "./html-report",
+          "outputPath": "html-report/index.html",
+          "publicPath": "html-report",
           "filename": "index.html",
           "openReport": false
         }
