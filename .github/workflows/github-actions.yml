@@ -47,7 +47,7 @@ jobs:
        with:
          name: coverage
          if-no-files-found: error
-         path: coverage
+         path: html-report/index.html
 
      - name: 
        uses: JamesIves/github-pages-deploy-action@v4
