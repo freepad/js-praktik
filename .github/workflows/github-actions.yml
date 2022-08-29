@@ -52,7 +52,7 @@ jobs:
       - name: 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: html-report
+          folder: js-praktik
           clean: true
           token: ${{ secrets.ACCESS_TOKEN }}
 
