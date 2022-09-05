@@ -17,4 +17,4 @@ jobs:
       - run: echo $GITHUB_ACTION
 
       - name: Send report to telegram
-        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\":  \"Report link is: ${{ github.repository }}/tree/${{ github.head_ref }} ${{github.GITHUB_ACTION}} \"}'"
+        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\":  \"Report link is: ${{ github.repository }}/tree/${{ github.head_ref }} ${{github.action}} \"}'"
