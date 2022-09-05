@@ -7,9 +7,6 @@ permissions:
   pages: write
   id-token: write
 
-env:
-  _GITHUB_ACTION: ${{ github.GITHUB_ACTION }}
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,4 +17,4 @@ jobs:
       - run: echo $GITHUB_ACTION
 
       - name: Send report to telegram
-        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\":  \"Report link is: ${{env._GITHUB_ACTION}} \"}'"
+        run: "curl -X POST https://api.telegram.org/bot${{secrets.BOT_TOKEN}}/sendMessage -H \"Content-Type: application/json\" -d '{\"chat_id\": \"${{secrets.CHAT_ID}}\", \"text\":  \"Report link is: ${{env.github.GITHUB_ACTION}} \"}'"
