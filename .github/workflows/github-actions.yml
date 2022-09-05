@@ -2,13 +2,13 @@ name: Tests
 
 on: [push]
 
-env: 
-  - GITHUB_ACTION: ${{ GITHUB_ACTION }}
-
 permissions:
   contents: read
   pages: write
   id-token: write
+
+env: 
+  GITHUB_ACTION: ${{ GITHUB_ACTION }}
 
 jobs:
   test:
